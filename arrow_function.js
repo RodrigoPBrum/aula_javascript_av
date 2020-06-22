@@ -36,5 +36,30 @@ function Car() {
 }
 console.log(new Car());
 
+//hosting não funciona com arrow function
+
+log('teste')
+
+function log(value) {
+    console.log(value);
+}
+
+//arrow function utiliza o contexto léxico
+//dispensa o uso do .bind(), ou variavel _that
+var obj = {
+    showContext: function showContext() {
+        // this = obj
+
+        setTimeout(() => {
+            this.log('after 1000ms');
+        }, 1000);
+    },
+    log: function log(value) {
+        console.log(value);
+    }
+};
+
+obj.showContext();
+
 
 
